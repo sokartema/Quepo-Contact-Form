@@ -1,0 +1,27 @@
+{
+  "name": "quepo-contact-form",
+  "version": "1.0.0",
+  "description": "Formulario de contacto de quepo.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify -t [ babelify --presets [ react es2015 ] ] src/index.js -o build/app.js && uglifyjs build/app.js --output build/app-min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sokartema/Quepo-Contact-Form.git"
+  },
+  "author": "Jazer Abreu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sokartema/Quepo-Contact-Form/issues"
+  },
+  "homepage": "https://github.com/sokartema/Quepo-Contact-Form#readme",
+  "dependencies": {
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babelify": "^7.3.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  }
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="https://www.quepo.es/lib/bootstrap/dist/css/bootstrap.min.css">
+        <title>Contact Form</title>
+        <style media="screen">
+          input.custom{
+            height: 40px;
+            font-size: 17px;
+          }
+          input.custom:focus {
+            outline: none !important;
+            border:1px solid #00C5B9;
+            box-shadow: none;
+          }
+          input.custom:required:focus {
+            outline: none !important;
+            border:1px solid #00C5B9;
+            box-shadow: none;
+          }
+
+          input.customError{
+            height: 40px;
+            font-size: 17px;
+            outline: none !important;
+            border:1px solid #F05768;
+            box-shadow: none;
+          }
+          input.customError:focus {
+            outline: none !important;
+            border:1px solid #F05768;
+            box-shadow: none;
+          }
+
+          form.custom{
+            margin-top: 20px;
+          }
+          button.custom{
+            height: 40px;
+            font-size: 17px;
+            width: 100%;
+            font-weight: 600;
+            background-color: #F05768;
+            color: white;
+          }
+
+          button.custom:hover{
+
+            font-weight: 600;
+            background-color: #b04450;
+            color: white;
+          }
+
+          button.custom:active{
+
+            font-weight: 600;
+            background-color: #b04450;
+            color: white !important;
+          }
+
+          button.custom:focus{
+
+            font-weight: 600;
+            background-color: #F05768;
+            color: white !important;;
+          }
+          p.customErrorMessage{
+
+            color: #F05768;
+          }
+
+          .alert.alert-danger {
+            background: rgba(255,84,84,.1);
+            border-color: #ff5454;
+            color: #ff5454;
+          }
+          .alert {
+            border: 1px solid #e8eaed;
+            background: #cccfd6;
+            border-radius: 2px;
+            padding: 15px;
+            margin-bottom: 20px;
+          }
+
+        </style>
+    </head>
+    <body>
+        <div id="react-form"></div>
+        <script src="https://www.quepo.es/lib/jquery/dist/jquery.min.js"></script>
+        <script src="build/app.js"></script>
+        <script src="https://www.quepo.es/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    </body>
+</html>
