@@ -20654,7 +20654,7 @@ var ContactForm = function (_React$Component) {
     key: 'subjectHasError',
     value: function subjectHasError() {
 
-      if (this.tempObject.subject.length > 32) {
+      if (this.tempObject.subject.length > 64) {
 
         this.setState(function (prevState, props) {
 
@@ -20679,7 +20679,7 @@ var ContactForm = function (_React$Component) {
     key: 'messageHasError',
     value: function messageHasError() {
 
-      if (this.tempObject.message.length > 32) {
+      if (this.tempObject.message.length > 512) {
 
         this.setState(function (prevState, props) {
 
@@ -20826,26 +20826,33 @@ var ContactView = function (_React$Component) {
     key: 'onNewSubmit',
     value: function onNewSubmit(state) {
       var obj = {};
-      obj.email = state.email;
-      obj.subject = state.subject;
-      obj.message = state.message;
+      obj.email = state.email.trim();
+      obj.subject = state.subject.trim();
+      obj.text = state.message.trim();
 
       var self = this;
 
       $.ajax({
         type: "POST",
         dataType: "json",
-        url: "https://www.quepo.es/register",
+        url: "http://localhost:8080/contactEmail",
         data: obj,
         success: function success(e) {
-          if (e.id === 2) {
+          if (e.id === 0) {
 
-            self.setState({ ErrorMessage: "Este usuario ya ha sido registrado" });
-          } else if (e.id === 3) {
+            $('#contactar').modal('hide');
 
-            self.setState({ ErrorMessage: "El servicio de registro no esta disponible ahora mismo" });
-          } else if (e.id === 0) {
-            window.location = 'https://www.quepo.es/registerComplete';
+            var options = {
+              style: "toast",
+              content: "Mensaje enviado, gracias por contactar con nosotros.",
+              timeout: 2000,
+              htmlAllowed: true,
+              onClose: function onClose() {}
+            };
+
+            $.snackbar(options);
+          } else if (e.id === 1) {
+            self.setState({ ErrorMessage: "Error del servidor intentelo mas tarde" });
           }
         },
         error: function error(e) {
